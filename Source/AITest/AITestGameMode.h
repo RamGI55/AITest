@@ -6,6 +6,7 @@
 #include "GameFramework/GameModeBase.h"
 #include "AITestGameMode.generated.h"
 
+
 UCLASS(minimalapi)
 class AAITestGameMode : public AGameModeBase
 {

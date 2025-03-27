@@ -9,6 +9,7 @@
 /**
  * 
  */
+class UAISenseConfig_Sight; 
 UCLASS()
 class AITEST_API AEnemyAIController : public AAIController
 {
@@ -23,10 +24,17 @@ public:
 protected:
 
 private:
+	UFUNCTION() 
 	void OnRepeatTimer();
-	FTimerHandle RepeatTimerHandle;
+
+	UFUNCTION()
+	void SetUpPerceptionSystem();
+
+	UFUNCTION()
+	void OnTargetDetected(AActor* Actor, FAIStimulus const stimulus); 
 
 private:
-	float RepeatInterval; 
+	FTimerHandle RepeatTimerHandle;
+	float RepeatInterval;
 	
 };

@@ -7,6 +7,7 @@
 #include "Logging/LogMacros.h"
 #include "AITestCharacter.generated.h"
 
+class UAIPerceptionStimuliSourceComponent;
 class USpringArmComponent;
 class UCameraComponent;
 class UInputMappingContext;
@@ -55,6 +56,9 @@ protected:
 
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
+
+	UFUNCTION()
+	void SetupStiumlus(); 
 			
 
 protected:
@@ -69,5 +73,9 @@ public:
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
+
+private:
+	UPROPERTY(EditAnywhere)
+	UAIPerceptionStimuliSourceComponent* Stimulus; 
 };
 

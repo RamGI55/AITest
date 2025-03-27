@@ -4,6 +4,8 @@
 #include "EnemyCharacter/EnemyAIController.h"
 #include "NavigationSystem.h"
 #include "Blueprint/AIBlueprintHelperLibrary.h"
+#include "Perception/AIPerceptionComponent.h"
+#include "Perception/AISenseConfig_Sight.h"
 
 
 AEnemyAIController::AEnemyAIController()
@@ -16,7 +18,6 @@ void AEnemyAIController::OnPossess(APawn* InPawn)
 	Super::OnPossess(InPawn);
 	GetWorld()->GetTimerManager().SetTimer(RepeatTimerHandle,this,
 		&AEnemyAIController::OnRepeatTimer,true);
-	
 }
 
 void AEnemyAIController::OnUnPossess()
@@ -38,4 +39,9 @@ void AEnemyAIController::OnRepeatTimer()
 		UAIBlueprintHelperLibrary::SimpleMoveToLocation(this,NextLocation.Location);
 		UE_LOG(LogTemp,Log, TEXT("Nav Location Updated - %s"), *NextLocation.Location.ToString());
 	}
+}
+
+
+void AEnemyAIController::OnTargetDetected(AActor* Actor, FAIStimulus const stimulus)
+{
 }

@@ -3,9 +3,12 @@
 
 #include "EnemyCharacter/EnemyAI.h"
 
+#include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "EnemyCharacter/EnemyAIController.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "Perception/AIPerceptionSystem.h"
+
 
 
 // Sets default values
@@ -28,6 +31,8 @@ AEnemyAI::AEnemyAI()
 
 	GetCharacterMovement()->JumpZVelocity = 700.f;
 	GetCharacterMovement()->MaxWalkSpeed = 460.f;
+
+	
 }
 
 // Called when the game starts or when spawned
@@ -35,6 +40,10 @@ void AEnemyAI::BeginPlay()
 {
 	Super::BeginPlay();
 	
+}
+
+void AEnemyAI::SetupPerceptionSystem()
+{
 }
 
 // Called every frame
